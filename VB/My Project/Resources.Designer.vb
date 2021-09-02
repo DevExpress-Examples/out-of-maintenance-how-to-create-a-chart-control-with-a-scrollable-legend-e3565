@@ -1,4 +1,6 @@
-﻿' Developer Express Code Central Example:
+﻿Imports System
+
+' Developer Express Code Central Example:
 ' How to create a chart control with a scrollable legend
 ' 
 ' This example illustrates how to create a chart control with a scrollable legend.
@@ -18,10 +20,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-
-Imports Microsoft.VisualBasic
-	Imports System
-Namespace My
+Namespace My.Resources
 
 
 	''' <summary>
@@ -31,25 +30,28 @@ Namespace My
 	' class via a tool like ResGen or Visual Studio.
 	' To add or remove a member, edit your .ResX file then rerun ResGen
 	' with the /str option, or rebuild your VS project.
-	<Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"), Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()> _
-	Friend Class Resources
+	<System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")>
+	<System.Diagnostics.DebuggerNonUserCodeAttribute()>
+	<System.Runtime.CompilerServices.CompilerGeneratedAttribute(), _
+	Global.Microsoft.VisualBasic.HideModuleNameAttribute()>
+	Friend Module Resources
 
-		Private Shared resourceMan As Global.System.Resources.ResourceManager
+		Private resourceMan As System.Resources.ResourceManager
 
-		Private Shared resourceCulture As Global.System.Globalization.CultureInfo
+		Private resourceCulture As System.Globalization.CultureInfo
 
-		<Global.System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")> _
-		Friend Sub New()
-		End Sub
+'		internal Resources()
+'		{
+'		}
 
 		''' <summary>
 		'''   Returns the cached ResourceManager instance used by this class.
 		''' </summary>
-		<Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
-		Friend Shared ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
+		<System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>
+		Friend ReadOnly Property ResourceManager() As System.Resources.ResourceManager
 			Get
 				If Object.ReferenceEquals(resourceMan, Nothing) Then
-					Dim temp As New Global.System.Resources.ResourceManager("Resources", GetType(Resources).Assembly)
+					Dim temp As New System.Resources.ResourceManager("Resources", GetType(Resources).Assembly)
 					resourceMan = temp
 				End If
 				Return resourceMan
@@ -60,8 +62,8 @@ Namespace My
 		'''   Overrides the current thread's CurrentUICulture property for all
 		'''   resource lookups using this strongly typed resource class.
 		''' </summary>
-		<Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
-		Friend Shared Property Culture() As Global.System.Globalization.CultureInfo
+		<System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>
+		Friend Property Culture() As System.Globalization.CultureInfo
 			Get
 				Return resourceCulture
 			End Get
@@ -69,5 +71,5 @@ Namespace My
 				resourceCulture = value
 			End Set
 		End Property
-	End Class
+	End Module
 End Namespace
