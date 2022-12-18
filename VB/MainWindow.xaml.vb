@@ -1,37 +1,35 @@
-﻿Imports System
+Imports System
 Imports System.Windows
 Imports DevExpress.Xpf.Charts
 
 Namespace ScrollableLegend
 
-	Partial Public Class MainWindow
-		Inherits Window
+    Public Partial Class MainWindow
+        Inherits Window
 
-		Public Sub New()
-			InitializeComponent()
-		End Sub
+        Public Sub New()
+            Me.InitializeComponent()
+        End Sub
 
-		Private Sub Window_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
-			Dim rnd As New Random()
-			Dim today As DateTime = DateTime.Today
+        Private Sub Window_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
+            Dim rnd As Random = New Random()
+            Dim today As Date = Date.Today
+            Me.chart.BeginInit()
+            For i As Integer = 0 To 20 - 1
+                Dim areaSeries As AreaStackedSeries2D = New AreaStackedSeries2D()
+                areaSeries.ArgumentScaleType = ScaleType.DateTime
+                areaSeries.LabelsVisibility = False
+                areaSeries.Transparency = 0.3
+                areaSeries.DisplayName = "Area " & (i + 1).ToString()
+                For j As Integer = 0 To 30
+                    Dim p As SeriesPoint = New SeriesPoint(today.AddDays(j), rnd.Next(50, 100))
+                    areaSeries.Points.Add(p)
+                Next
 
-			chart.BeginInit()
-			For i As Integer = 0 To 19
-				Dim areaSeries As New AreaStackedSeries2D()
-				areaSeries.ArgumentScaleType = ScaleType.DateTime
-				areaSeries.LabelsVisibility = False
-				areaSeries.Transparency = 0.3
-				areaSeries.DisplayName = "Area " & (i + 1).ToString()
+                Me.xyDiagram.Series.Add(areaSeries)
+            Next
 
-				For j As Integer = 0 To 30
-					Dim p As New SeriesPoint(today.AddDays(j), rnd.Next(50, 100))
-					areaSeries.Points.Add(p)
-				Next j
-
-				xyDiagram.Series.Add(areaSeries)
-			Next i
-			chart.EndInit()
-		End Sub
-	End Class
-
+            Me.chart.EndInit()
+        End Sub
+    End Class
 End Namespace
